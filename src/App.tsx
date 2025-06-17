@@ -13,6 +13,7 @@ import LineChart from "./pages/Charts/LineChart";
 import BarChart from "./pages/Charts/BarChart";
 import Calendar from "./pages/Calendar";
 import BasicTables from "./pages/Tables/BasicTables";
+import KelolaAkun from "./pages/KelolaAkun/KelolaAkun";
 import FormElements from "./pages/Forms/FormElements";
 import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
@@ -39,6 +40,9 @@ export default function App() {
 
             {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />
+
+            {/* Kelola Akun */}
+            <Route path="/akun" element={<KelolaAkun />} />
 
             {/* Ui Elements */}
             <Route path="/alerts" element={<Alerts />} />
