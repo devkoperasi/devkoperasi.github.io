@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "../../icons";
+import { EyeCloseIcon, EyeIcon } from "../../icons";
 import Label from "../form/Label";
 import Input from "../form/input/InputField";
 import { registerUser } from "../../api/register";
@@ -65,7 +65,9 @@ export default function SignUpForm() {
           <form onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>
-                <Label>Nama<span className="text-error-500">*</span></Label>
+                <Label>
+                  Nama<span className="text-error-500">*</span>
+                </Label>
                 <Input
                   type="text"
                   value={name}
@@ -75,7 +77,9 @@ export default function SignUpForm() {
               </div>
 
               <div>
-                <Label>Username<span className="text-error-500">*</span></Label>
+                <Label>
+                  Username<span className="text-error-500">*</span>
+                </Label>
                 <Input
                   type="text"
                   value={username}
@@ -85,7 +89,9 @@ export default function SignUpForm() {
               </div>
 
               <div>
-                <Label>Email<span className="text-error-500">*</span></Label>
+                <Label>
+                  Email<span className="text-error-500">*</span>
+                </Label>
                 <Input
                   type="email"
                   value={email}
@@ -96,22 +102,52 @@ export default function SignUpForm() {
 
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-1">
-                  <Label>Kata Sandi<span className="text-error-500">*</span></Label>
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Masukkan kata sandi"
-                  />
+                  <Label>
+                    Kata Sandi<span className="text-error-500">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Masukkan kata sandi"
+                    />
+                    <span
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer z-30"
+                    >
+                      {showPassword ? (
+                        <EyeIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
+                      ) : (
+                        <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
+                      )}
+                    </span>
+                  </div>
                 </div>
+
                 <div className="sm:col-span-1">
-                  <Label>Konfirmasi kata Sandi<span className="text-error-500">*</span></Label>
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    value={password_confirmation}
-                    onChange={(e) => setpasswordconfirmation(e.target.value)}
-                    placeholder="Masukkan kata sandi sekali lagi"
-                  />
+                  <Label>
+                    Konfirmasi kata Sandi
+                    <span className="text-error-500">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      value={password_confirmation}
+                      onChange={(e) => setpasswordconfirmation(e.target.value)}
+                      placeholder="Masukkan kata sandi sekali lagi"
+                    />
+                    <span
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer z-30"
+                    >
+                      {showPassword ? (
+                        <EyeIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
+                      ) : (
+                        <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
+                      )}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -128,8 +164,11 @@ export default function SignUpForm() {
 
           <div className="mt-5">
             <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400">
-              Sudah punya akun? Masuk {" "}
-              <Link to="/signin" className="text-brand-500 hover:text-brand-600 dark:text-brand-400">
+              Sudah punya akun? Masuk{" "}
+              <Link
+                to="/signin"
+                className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
+              >
                 di sini!
               </Link>
             </p>
