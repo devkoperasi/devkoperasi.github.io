@@ -303,9 +303,13 @@ const AppSidebar: React.FC = () => {
           !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
         }`}
       >
-        <div>
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white">DEVKoperasi</h1>
-        </div>
+      <div>
+        {(isExpanded || isHovered || isMobileOpen) && (
+          <h1 className="hidden lg:block text-xl font-extrabold text-gray-900 dark:text-white">
+            FIN-GROW
+          </h1>
+        )}
+      </div>
       </div>
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
         <nav className="mb-6">
